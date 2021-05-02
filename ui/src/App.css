@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #E3EDE9;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,9 +22,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   font-family:'Poppins', sans-serif;
-  color: white;
+  color: black;
 }
 
+
+.Card 
+{
+  font-size: 5px; 
+  font-family:'Poppins', sans-serif;
+  color: black;
+  text-align: left;
+}
 .App-link {
   color: #61dafb;
 }
@@ -36,4 +44,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.question-list 
+{ 
+  text-align: left;
+  font-family:'Poppins', sand-serif;
+}
+.card.screen-box
+{
+  background-color: white;
+  border: 10px solid #878C8C;
+  box-sizing: border-box;
+  border-radius: 10px;
+  
+  color: #000
 }
