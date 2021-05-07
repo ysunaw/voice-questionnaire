@@ -60,3 +60,12 @@
   
   color: #000
 }
+
+.card.add-question {
+  background-color: transparent;
+  width: auto;
+  border: 3px dashed #878C8C;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 15px
+}
