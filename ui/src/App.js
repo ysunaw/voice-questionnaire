@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Navbar, Nav, Container, Button, Row, Col, Card } from 'react-bootstrap';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { Navbar, Nav, Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
+import { Switch, Route } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -32,20 +33,28 @@ const SurveyQuestions = () => (
     <h4>
       Screen Display
     </h4>
+    <p>How screen would look like on the Alexa Echo device.</p>
     <Card className="mx-auto screen-box">
       <Card.Body>
       <Card.Title>
-        Untitled Questionnaire
+      <Form>
+      <Form.Control placeholder="Untitled questionniare" />
+      <Form.Control placeholder="Description" />
+      </Form>
       </Card.Title>
-      <Card.Text>
+      {/* <Card.Text>
         Description
-        </Card.Text>
+        </Card.Text> */}
       </Card.Body>
     </Card>
   </Col>
   <Col md>
   <h4>Voice Prompt</h4>
-  <p>Welcome to untitled questionnaire. Description. Are you ready? </p>
+  <p>What the Alexa Echo device will say to the user. </p>
+  {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
+  <Form>
+      <Form.Control placeholder="Welcome to untitled questionnaire. Description. Are you ready?" />
+      </Form>
   </Col>
   </Row>
   <Row></Row>
@@ -63,6 +72,10 @@ const SurveyQuestions = () => (
   </Container>
   </div>
 );
+
+// const AddQuestion = () => {
+//   const [add]
+// }
 
 const Home = () => (
 
