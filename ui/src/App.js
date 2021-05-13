@@ -15,6 +15,29 @@ function App() {
   );
 }
 
+const getArticlesFromApi = async () => {
+  console.log("working");
+  try {
+    fetch('https://h5de9isuhd.execute-api.us-east-2.amazonaws.com/qq', {
+
+      method: "post",   
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "qId":"788",
+        "question":"srish"
+    })
+    })
+    .then(function(response) {
+      console.log(response.text());
+    })
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
 const Main = () => (
            <Switch>
@@ -83,7 +106,9 @@ const Home = () => (
   <Navbar bg="light" fixed="top" color="light" expand="xs">
       <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
         <Nav className="justify-content-right">
-        <Button href="/preview" color="success" >Preview & send</Button>
+        <Button onPress={
+    getArticlesFromApi()
+  } >Preview & send</Button>
         </Nav>
     </Navbar>
   <SurveyQuestions />
