@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "template ten",
+            "invocationName": "voice qualtrics",
             "intents": [
                 {
                     "name": "AMAZON.NavigateHomeIntent",
@@ -41,7 +41,7 @@
                     "name": "GetMoviesIntent",
                     "slots": [],
                     "samples": [
-                        "get my movies"
+                        "get my questions"
                     ]
                 },
                 {

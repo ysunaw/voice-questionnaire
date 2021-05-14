@@ -1,42 +1,93 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import React, {useReducer, useState} from "react";
 import { Navbar, Nav, Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
 import { Switch, Route } from 'react-router-dom';
 
+const formReducer = (state, event) => {
+  return {
+    ...state,
+    [event.name]: event.value
+
+  }
+ }
+ 
 
 function App() {
+  const [formData, setFormData] = useReducer(formReducer, {});
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = event => {
+    console.log(event.target.value.toString())
+    event.preventDefault();
+    setSubmitting(true);
+
+    setTimeout(() => {
+      setSubmitting(false);
+    }, 3000);
+  }
+
+  const handleChange = event => {
+    setFormData({
+      name: event.target.name,
+      value: event.target.value,
+    });
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
       <Main />
+      {submitting &&
+       <div>
+         You are submitting the following:
+         <ul>
+           {Object.entries(formData).map(([name, value]) => (
+             <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+           ))}
+         </ul>
+       </div>
+      }
+      
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <label>
+            <p>Name</p>
+            <input name="name" onChange={handleChange}/>
+          </label>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
       </header>
       </div>
   );
 }
 
-const getArticlesFromApi = async () => {
-  console.log("working");
-  try {
-    fetch('https://h5de9isuhd.execute-api.us-east-2.amazonaws.com/qq', {
 
-      method: "post",   
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "qId":"788",
-        "question":"srish"
-    })
-    })
-    .then(function(response) {
-      console.log(response.text());
-    })
-  } catch (error) {
-    console.error(error);
-  }
-};
+
+// const getArticlesFromApi = async () => {
+//   try {
+//     fetch('https://h5de9isuhd.execute-api.us-east-2.amazonaws.com/qq', {
+
+//       method: "post",   
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         "qId":"788",
+//         "question":"srish"
+//     })
+//     })
+//     .then(function(response) {
+//       console.log(response.text());
+//     })
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 
 const Main = () => (
@@ -47,6 +98,7 @@ const Main = () => (
 
            </Switch>
          );
+
 
 const SurveyQuestions = () => (
   <div className="SurveyQuestions">
@@ -61,8 +113,10 @@ const SurveyQuestions = () => (
       <Card.Body>
       <Card.Title>
       <Form>
-      <Form.Control placeholder="Untitled questionniare" />
-      <Form.Control placeholder="Description" />
+      <Form.Group controlId="Title-Description">
+      <Form.Control type="title" placeholder="Untitled questionniare"/>
+      <Form.Control type="description" placeholder="Description" />
+      </Form.Group>
       </Form>
       </Card.Title>
       {/* <Card.Text>
@@ -96,9 +150,6 @@ const SurveyQuestions = () => (
   </div>
 );
 
-// const AddQuestion = () => {
-//   const [add]
-// }
 
 const Home = () => (
 
@@ -106,9 +157,9 @@ const Home = () => (
   <Navbar bg="light" fixed="top" color="light" expand="xs">
       <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
         <Nav className="justify-content-right">
-        <Button onPress={
+        {/* <Button onPress={
     getArticlesFromApi()
-  } >Preview & send</Button>
+  } >Preview & send</Button> */}
         </Nav>
     </Navbar>
   <SurveyQuestions />
@@ -143,3 +194,4 @@ const Sent = () => (
   </div>
 );
 export default App;
+

@@ -10,7 +10,7 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Hello there. What is your favourite movie? You can say add moviename to add your favourite movie or say list my movies to get your favourite movies.';
+    const speechText = 'Welcome to untitled questionnaire. You can ask me to list your quetions by saying list my questions';
     const repromptText = 'What would you like to do? You can say HELP to get available options';
 
     return handlerInput.responseBuilder
@@ -71,11 +71,11 @@ const GetMoviesIntentHandler = {
   async handle(handlerInput) {
     const {responseBuilder } = handlerInput;
     const userID = handlerInput.requestEnvelope.context.System.user.userId; 
-    return dbHelper.getMovies(userID)
+    return dbHelper.getQuestions(userID)
       .then((data) => {
-        var speechText = "Your Question is"
+        var speechText = "Your questions are: "
         if (data.length == 0) {
-          speechText = "You do not have any favourite movie yet, add movie by saving add moviename "
+          speechText = "You do not have any questions yet, add questions by using our voice qualtrics platform. "
         } else {
           speechText += data.map(e => e.qId).join(", ")
         }
@@ -85,7 +85,7 @@ const GetMoviesIntentHandler = {
           .getResponse();
       })
       .catch((err) => {
-        const speechText = "we cannot get your movie right now. Try again!"
+        const speechText = "we cannot get your questions right now. Try again!"
         return responseBuilder
           .speak(speechText)
           .getResponse();

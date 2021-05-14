@@ -4,11 +4,11 @@
     "default": {
       "skillId": "amzn1.ask.skill.67a1175d-b15e-4b48-989d-56f8409b3857",
       "skillMetadata": {
-        "lastDeployHash": "tSzEPCK+T9rcuBwfiuygjLhxczg="
+        "lastDeployHash": "UygOt611sk727hEeSvFYkuX+aok="
       },
       "code": {
         "default": {
-          "lastDeployHash": "POJOrz+B73TQ8EnacAxplSsu9SI="
+          "lastDeployHash": "JkYdNzY500tJT/y1WiQ7ONaTVqQ="
         }
       },
       "skillInfrastructure": {
@@ -17,8 +17,8 @@
             "default": {
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:565049400589:function:ask-dynamodb-starter-alexa-default-default-1620937168722",
-                "lastModified": "2021-05-13T22:08:18.490+0000",
-                "revisionId": "413016cb-10ea-4a86-b224-89ac87429a08"
+                "lastModified": "2021-05-13T22:16:58.388+0000",
+                "revisionId": "ab11ae8e-fc48-4fcc-af00-1f7f90652174"
               },
               "iamRole": "arn:aws:iam::565049400589:role/ask-lambda-dynamodb-starter-alexa-1620937154261"
             }

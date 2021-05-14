@@ -25,7 +25,7 @@ dbHelper.prototype.addMovie = (qID, userID) => {
     });
 }
 
-dbHelper.prototype.getMovies = (userID) => {
+dbHelper.prototype.getQuestions = (userID) => {
     return new Promise((resolve, reject) => {
         const params = {
             TableName: tableName,
