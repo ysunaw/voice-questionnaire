@@ -33,4 +33,4 @@ npm start
 
 ## Amazon Echo Device Connectivity
 
-The `dynamo-db-starter` is the part for creating an Alexa Skill for the questionnaire platform. 
+The `dynamo-db-starter` folder is for creating an Alexa Skill for the questionnaire platform.
