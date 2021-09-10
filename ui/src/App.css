@@ -27,12 +27,12 @@
 
 
 
-.Card 
+.Card
 {
-  font-size: 5px; 
+  font-size: 5px;
   font-family:'Poppins', sans-serif;
-  color: black;
   text-align: left;
+
 }
 .App-link {
   color: #61dafb;
@@ -47,18 +47,20 @@
   }
 }
 
-.question-list 
-{ 
+.question-list
+{
   text-align: left;
   font-family:'Poppins', sand-serif;
+  font-size: 16px
 }
+
 .card.screen-box
 {
   background-color: white;
   border: 10px solid #878C8C;
   box-sizing: border-box;
   border-radius: 10px;
-  
+
   color: #000
 }
 
@@ -71,3 +73,34 @@
   padding: 15px
 }
 
+.color-nav {
+  background-color: #00473E;
+}
+.sidebar {
+       position: fixed;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       min-height: 100vh !important;
+       z-index: 100;
+       padding: 48px 0 0;
+       box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+   }
+   #sidebar-wrapper{
+       min-height: 100vh !important;
+       width: 100vw;
+       margin-left: -1rem;
+       -webkit-transition: margin .25s ease-out;
+       -moz-transition: margin .25s ease-out;
+       -o-transition: margin .25s ease-out;
+       transition: margin .25s ease-out;
+   }
+   #sidebar-wrapper .sidebar-heading {
+       padding: 0.875rem 1.25rem;
+       font-size: 1.2rem;
+   }
+
+   #page-content-wrapper {
+       min-width: 0;
+       width: 100%;
+   }
