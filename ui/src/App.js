@@ -39,10 +39,10 @@ function App() {
 
   return (
     <div className="App">
-
         <header className="App-header">
         <Main />
         </header>
+
 
       </div>
 
@@ -90,17 +90,14 @@ const SurveyQuestions = () => (
           <p>How screen would look like on the Alexa Echo device.</p>
           <Card className="mx-auto screen-box">
             <Card.Body>
-            <Card.Title>
-            <Form>
-            <Form.Group controlId="Title-Description">
-            <Form.Control type="title" placeholder="Untitled questionniare"/>
-            <Form.Control type="description" placeholder="Description" />
-            </Form.Group>
-            </Form>
-            </Card.Title>
-            {/* <Card.Text>
-              Description
-              </Card.Text> */}
+              <Card.Title>
+                  <Form>
+                    <Form.Group controlId="Title-Description">
+                    <Form.Control type="title" placeholder="Untitled questionniare"/>
+                    <Form.Control type="description" placeholder="Description" />
+                    </Form.Group>
+                  </Form>
+              </Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -108,12 +105,14 @@ const SurveyQuestions = () => (
         <h4>Voice Prompt</h4>
         <p>What the Alexa Echo device will say to the user. </p>
         {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
-        <Form>
-            <Form.Control placeholder="Welcome to untitled questionnaire. Description. Are you ready?" />
+        <Card clasName="mx-auto voice-prompt">
+            <Form>
+              <Form.Control placeholder="Welcome to untitled questionnaire. Description. Are you ready?" />
             </Form>
+        </Card>
         </Col>
+
         </Row>
-        <Row></Row>
         <Row>
           <Col>
           <Card className="add-question">
@@ -132,20 +131,18 @@ const SurveyQuestions = () => (
 const Home = () => (
 
   <div className = "Home">
-  <Container fluid>
+  <Navbar fixed="top" bg="light" expand="xs">
+    <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
+      <Nav className="justify-content-right sidebar-sticky">
+       <Button href="/preview">Preview & send</Button>
+      </Nav>
+  </Navbar>
+  <Container fluid classname="main-content">
     <Row>
-    <Navbar fixed="top" bg="light" expand="xs">
-      <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
-        <Nav className="justify-content-right sidebar-sticky">
-         <Button href="/preview">Preview & send</Button>
-        </Nav>
-    </Navbar>
-    </Row>
-    <Row>
-      <Col xs={2} id = "sidebar-wrapper">
+      <Col xs={3} id = "sidebar-wrapper">
         <Sidebar />
       </Col>
-      <Col xs={10} id="page-content-wrapper">
+      <Col xs={9} id="page-content-wrapper">
         <SurveyQuestions />
       </Col>
     </Row>
