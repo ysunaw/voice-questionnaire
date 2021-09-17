@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useReducer, useState} from "react";
 import { Navbar, Nav, Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
 import { Switch, Route } from 'react-router-dom';
-import Sidebar from "./components/sidebar.js"
+import Sidebar from "./components/sidebar.js";
+import QuestionCard from "./components/questioncard.js"
+import { useDrag } from 'react-dnd'
+
+
 
 const formReducer = (state, event) => {
   return {
@@ -79,6 +83,11 @@ const Main = () => (
            </Switch>
          );
 
+function AddQuestion(props){
+  return <p>added</p>
+
+
+}
 
 const SurveyQuestions = () => (
   <div className="SurveyQuestions">
@@ -113,17 +122,7 @@ const SurveyQuestions = () => (
         </Col>
 
         </Row>
-        <Row>
-          <Col>
-          <Card className="add-question">
-            <Card.Body>
-            <Card.Title>
-              Add a Question
-            </Card.Title>
-            </Card.Body>
-          </Card>
-          </Col>
-        </Row>
+        <QuestionCard/>
   </div>
 );
 
@@ -161,15 +160,15 @@ const Preview = () => (
 
 
     <p>preview</p>
-     <Card className="mx-auto screen-box">
+     <Card className="mx-auto screen-box md">
       <Card.Body>
       <Card.Title>
-      <Form>
-      <Form.Group controlId="Title-Description">
-      <Form.Control type="title" placeholder="Untitled questionniare"/>
-      <Form.Control type="description" placeholder="Description" />
-      </Form.Group>
-      </Form>
+        <Form>
+          <Form.Group controlId="Title-Description">
+            <Form.Control type="title" placeholder="Untitled questionniare"/>
+            <Form.Control type="description" placeholder="Description" />
+          </Form.Group>
+        </Form>
       </Card.Title>
       {/* <Card.Text>
         Description
