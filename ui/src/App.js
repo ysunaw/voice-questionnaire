@@ -6,6 +6,8 @@ import { Navbar, Nav, Container, Button, Row, Col, Card, Form } from 'react-boot
 import { Switch, Route } from 'react-router-dom';
 import Sidebar from "./components/sidebar.js";
 import QuestionCard from "./components/questioncard.js"
+import ShortAnswer from "./components/questioncard.js"
+
 import { useDrag } from 'react-dnd'
 
 
@@ -130,12 +132,7 @@ const SurveyQuestions = () => (
 const Home = () => (
 
   <div className = "Home">
-  <Navbar fixed="top" bg="light" expand="xs">
-    <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
-      <Nav className="justify-content-right sidebar-sticky">
-       <Button href="/preview">Preview & send</Button>
-      </Nav>
-  </Navbar>
+
   <Container fluid classname="main-content">
     <Row>
       <Col xs={3} id = "sidebar-wrapper">
@@ -155,6 +152,7 @@ const Preview = () => (
         <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
           <Nav className="justify-content-right">
           <Button href="/sent" color="success" >Send</Button>
+          // FOR SRISH FOR TESTING APIS
           </Nav>
       </Navbar>
 

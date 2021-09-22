@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, Form, Row, Col} from "react-bootstrap";
+import {Card, Form, Row, Col, Button} from "react-bootstrap";
 
 
 export default class QuestionCard extends Component {
@@ -14,38 +14,35 @@ export default class QuestionCard extends Component {
         this.setState({count: this.state.count + 1})
     }
 
-    renderDivs(){
-        let count = this.state.count, uiItems = [];
-        while(count--)
-           uiItems.push(
-               <div>
-               <Row>
-               <Col md>
-                 <Card className="mx-auto screen-box">
-                   <Card.Body>
-                     <Card.Title>
-                         <Form>
-                           <Form.Group controlId="Title-Description">
-                           <Form.Control type="title" placeholder="Untitled questionniare"/>
-                           <Form.Control type="description" placeholder="Description" />
-                           </Form.Group>
-                         </Form>
-                     </Card.Title>
-                   </Card.Body>
-                 </Card>
-               </Col>
-               <Col md>
-               <Card clasName="mx-auto voice-prompt">
-                   <Form>
-                     <Form.Control placeholder="Welcome to untitled questionnaire. Description. Are you ready?" />
-                   </Form>
-               </Card>
-               </Col>
-               </Row>
 
-               </div>
-            )
-        return uiItems;
+    renderDivs(){
+      let count = this.state.count, uiItems = [];
+      while(count--)
+         uiItems.push(
+             <div>
+             <Row>
+             <Col md>
+               <Card className="mx-auto screen-box">
+                 <Card.Body>
+                   <Card.Title contenteditable="true" type="form">
+                      <u>Untitled questionnaire</u>
+                   </Card.Title>
+                      <u contenteditable="true">Description</u>
+                 </Card.Body>
+               </Card>
+             </Col>
+             <Col md>
+             <Card clasName="mx-auto voice-prompt">
+                 <Form>
+                   <Form.Control placeholder="Welcome to untitled questionnaire. Description. Are you ready?" />
+                 </Form>
+             </Card>
+             </Col>
+             </Row>
+
+             </div>
+          )
+      return uiItems;
     }
 
     render() {
@@ -63,8 +60,36 @@ export default class QuestionCard extends Component {
                   </Card>
                   </Col>
                 </Row>
+                <Row>
+                <Col md>
+                  <Card className="mx-auto screen-box">
+                    <Card.Body>
+                      <Card.Title id="title" contenteditable="true">
+                         Multiple Question
+                       </Card.Title>
+                       <ul>
+                         <li contenteditable="true">Option 1</li>
+                         <li contenteditable="true">Option 2</li>
+                         <li contenteditable="true">Option 3</li>
+                         <Button>Add an Option</Button>
+                       </ul>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col md>
+                <Card clasName="mx-auto voice-prompt">
+                    <Form>
+                      <Form.Control placeholder="Short Answer? " />
+                    </Form>
+                </Card>
+                </Col>
+                </Row>
+
+
+
 
             </div>
+
         )
     }
 }
