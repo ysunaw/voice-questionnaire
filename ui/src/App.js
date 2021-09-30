@@ -132,7 +132,12 @@ const SurveyQuestions = () => (
 const Home = () => (
 
   <div className = "Home">
-
+  <Navbar fixed="top" bg="light" expand="xs">
+     <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
+       <Nav className="justify-content-right sidebar-sticky">
+        <Button href="/preview">Preview & send</Button>
+       </Nav>
+   </Navbar>
   <Container fluid classname="main-content">
     <Row>
       <Col xs={3} id = "sidebar-wrapper">
@@ -151,11 +156,9 @@ const Preview = () => (
       <Navbar bg="light" fixed="top" color="light" expand="xs">
         <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
           <Nav className="justify-content-right">
-          <Button href="/sent" color="success" >Send</Button>
-          // FOR SRISH FOR TESTING APIS
+          <Button color="success" onClick={post}>Send</Button>
           </Nav>
       </Navbar>
-
 
     <p>preview</p>
      <Card className="mx-auto screen-box md">
@@ -191,4 +194,30 @@ const Sent = () => (
     </Card>
   </div>
 );
+
+function post() {
+
+  var request = require('request');
+
+  var url = "https://h5de9isuhd.execute-api.us-east-2.amazonaws.com/qq";
+
+  var requestData = {
+    "qId":301,
+    "Options":"True, False",
+    "questionText":"Did you workout today?",
+    "questionType": "multiple"
+  } 
+
+  var data = {
+      url: url,
+      json: true,
+      body: JSON.parse(JSON.stringify(requestData))
+  }
+
+  request.post(data, function(error, httpResponse, body){
+      console.log(body);
+  });
+
+};
+
 export default App;
