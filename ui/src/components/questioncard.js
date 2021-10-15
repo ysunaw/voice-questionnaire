@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import {Card, Form, Row, Col, Button} from "react-bootstrap";
 
 
+
+function pushRules(list){
+     var rules = "";
+     var li = document.createElement("li");
+     var rule = document.createTextNode("Option x");
+     li.appendChild(rule);
+
+     var removeBtn = document.createElement("input");
+     removeBtn.type = "button";
+     removeBtn.value = "Remove";
+     removeBtn.onclick = remove;
+     li.appendChild(removeBtn);
+     document.getElementById("option-list").appendChild(li);
+ }
+
+function remove(e) {
+   var el = e.target;
+   el.parentNode.remove();
+ }
+
+
 export default class QuestionCard extends Component {
     constructor(props) {
         super(props);
@@ -24,10 +45,10 @@ export default class QuestionCard extends Component {
              <Col md>
                <Card className="mx-auto screen-box">
                  <Card.Body>
-                   <Card.Title contenteditable="true" type="form">
-                      <u>Untitled questionnaire</u>
+                   <Card.Title contenteditable="true" type="form" id="q-title">
+                      <u>Question</u>
                    </Card.Title>
-                      <u contenteditable="true">Description</u>
+                      <u contenteditable="true" id ="q-description">Description</u>
                  </Card.Body>
                </Card>
              </Col>
@@ -44,7 +65,6 @@ export default class QuestionCard extends Component {
           )
       return uiItems;
     }
-
     render() {
         return (
             <div>
@@ -64,31 +84,30 @@ export default class QuestionCard extends Component {
                 <Col md>
                   <Card className="mx-auto screen-box">
                     <Card.Body>
-                      <Card.Title id="title" contenteditable="true">
-                         Multiple Question
+                      <Card.Title id="mc-title" contenteditable="true">
+                         Multiple Choice Question title
                        </Card.Title>
-                       <ul>
-                         <li contenteditable="true">Option 1</li>
-                         <li contenteditable="true">Option 2</li>
-                         <li contenteditable="true">Option 3</li>
-                         <Button>Add an Option</Button>
-                       </ul>
+
+                       <p id="demo-p"></p>
+                       <ul id="option-list-one">
+                         <li contenteditable="true" id="mc-option-1">Option 1</li>
+                         <li contenteditable="true" id="mc-option-2">Option 2</li>
+                        </ul>
+                         <ul id="option-list"></ul>
                     </Card.Body>
                   </Card>
                 </Col>
                 <Col md>
                 <Card clasName="mx-auto voice-prompt">
                     <Form>
-                      <Form.Control placeholder="Short Answer? " />
+                      <Form.Control placeholder="Question?" />
                     </Form>
                 </Card>
+
+
                 </Col>
                 </Row>
-
-
-
-
-            </div>
+                </div>
 
         )
     }
