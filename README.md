@@ -2,12 +2,19 @@
 
 Specialization project 2021, Yimeng Sun & Srishti Gupta
 
-This platform is originally built to facilitate doctors and other caregivers for distributing health assessment questionnaires to their patients. It is also a general platform for user to create and send out voice-based questionnaires. The platform is also automatically integrated into Amazon’s Echo devices.  
+## Overview
 
-The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. The GUI cis used for creating and sending a questionnaire. Amazon Web Services (AWS) ’s lambda function then helps to translate the requests and create items to the tables in DynamoDB. When the user speaks to his/her Alexa device to trigger the questionnaire, Amazon voice service would read the questions from the database and announce them one at a time.  
 
-To launch the platform, download the repository and follow the below in the UI section. 
+Voice Qualtrics is a survey-making platform designed for creating and sending out questionnaires through Amazon’s Echo devices. It is primarily built to facilitate care providers to distribute Electronic Rapid Fitness Assessment (eRFA) to their patients so the patients can answer the questions from the comfort of their home, but it is also a general platform to design and send out any voice-based questionnaries. 
 
+
+## Developer's guide
+
+The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. 
+
+Amazon Web Services (AWS) ’s lambda function then helps to translate the requests and create items to the tables in DynamoDB. When the user speaks to his/her Alexa device to trigger the questionnaire, Amazon voice service would read the questions from the database and announce them one at a time.  
+
+To launch the platform, download the git repository and follow the below instructions. 
 
 ## UI
 
