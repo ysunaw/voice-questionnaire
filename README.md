@@ -6,7 +6,6 @@ Specialization project 2021, Yimeng Sun & Srishti Gupta
 
 Voice Qualtrics is a survey-making platform designed for creating and sending out questionnaires through Amazon’s Echo devices. It is primarily built to facilitate care providers to distribute Electronic Rapid Fitness Assessment (eRFA) to their patients, so the assessment could be accessed and answered by the patients from the comfort of their home. It is also a general platform to design and send out any voice-based questionnaries. 
 
-
 The primary features of the voice survey maker platform are: 
 - edit questionnaire titles, descriptions and welcome voice prompt;
 - adding different types of questions in the questionnarie, including multiple choice questions, short answer questions, and grid questions; 
@@ -17,15 +16,15 @@ The primary features of the voice survey maker platform are:
 
 ## User guide
 
-Open the GUI platform to get started. The left sidebar shows the types of questions it supports. Drag and drop a type of question card to the main section and click on the titles, description, and voice prompt to edit them. For multiple choice questions, you can add options by clicking on the 'add an option' button. 
+Open the GUI platform to get started. The left sidebar shows the types of questions it supports. Drag and drop a type of question card to the main section and click on the titles, description, and voice prompt to edit them. In multiple choice questions, you can add options by clicking on the 'add an option' button.  
 
-The platform 
+After finish editing your questionnarie, you can click on the 'preview & send' button to see the preview of the questionnarie. You can always go back to the editing page if you want to make any changes. Click on the ‘send’ button on the preview page when you think it is ready to be sent out. Should the deployment be successful, you will see a successful message with the instruction on accessing the questionnaire. 
 
-To access the questionnarie you created, use any Amazon Echo devices or Alexa app on your devices and say '**Alexa, open + questionnarie title**' to trigger the questionnarie. The answers would th
+To access the questionnarie you created, use any Amazon Echo devices or Alexa app on your devices and say '**Alexa, open + questionnarie title**' to trigger the questionnarie. 
 
 ## Developer's guide
 
-The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. The system diagram is shwon as below. 
+The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. The system diagram is shown as below. 
 
 ![system](system_components.png)
 
@@ -37,7 +36,7 @@ To launch the platform, download the git repository and follow the below instruc
 ## UI
 
 Below is the Figma prototype link: https://www.figma.com/proto/muG4NGDatAY6zFcb1fAXEf/voice-qualtrics?page-id=220%3A173&node-id=323%3A69&viewport=-292%2C-1018%2C0.4422054886817932&scaling=min-zoom
-The figma is a demonstration of what the final product will look like. we are still in the development of this platform and the actual front-end is the interim version. While it is still under development, the front-end facilitates the editing and sending of questionnaire title and one multiple choice question. 
+The figma is a demonstration of what the final product will look like. While it is still under development, the current UI facilitates the editing and sending of questionnaire title and one multiple choice question. 
 
 The UI of the voice qualtrics platform is built using React and Bootstrap. 
 
