@@ -6,6 +6,8 @@ Specialization project 2021, Yimeng Sun & Srishti Gupta
 
 Voice Qualtrics is a survey-making platform designed for creating and sending out questionnaires through Amazon’s Echo devices. It is primarily built to facilitate care providers to distribute Electronic Rapid Fitness Assessment (eRFA) to their patients, so the assessment could be accessed and answered by the patients from the comfort of their home. It is also a general platform to design and send out any voice-based questionnaries. 
 
+**TODO DEFINE USER AS ANYONE WHO USES THE PLATFORM** 
+
 The primary features of the voice survey maker platform are: 
 - edit questionnaire titles, descriptions and welcome voice prompt;
 - adding different types of questions in the questionnarie, including multiple choice questions, short answer questions, and grid questions; 
