@@ -25,7 +25,9 @@ To access the questionnarie you created, use any Amazon Echo devices or Alexa ap
 
 ## Developer's guide
 
-The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. 
+The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. The system diagram is shwon as below. 
+
+![system](system_components.png)
 
 
 Amazon Web Services (AWS) ’s lambda function then helps to translate the requests and create items to the tables in DynamoDB. When the user speaks to his/her Alexa device to trigger the questionnaire, Amazon voice service would read the questions from the database and announce them one at a time.  
