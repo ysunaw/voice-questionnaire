@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Card, Form, Row, Col, Button} from "react-bootstrap";
+import IconButton from '@mui/material/IconButton';
+import { VolumeUp } from '@mui/icons-material';
+
 
 function pushRules(list){
      var rules = "";
@@ -9,6 +12,8 @@ function pushRules(list){
      li.appendChild(u);
      u.contentEditable = "true";
      u.appendChild(rule);
+
+
 
 
      var removeBtn = document.createElement("input");
@@ -52,8 +57,7 @@ export default class OneCard extends Component {
           </Col>
           <Col md>
           <Card clasName="mx-auto voice-prompt">
-            <u contentEditable="true" id="mcq-voice">Question?</u>
-
+            <p><u contentEditable="true" id="mcq-voice">Question?</u><IconButton><VolumeUp /></IconButton></p>
           </Card>
 
 

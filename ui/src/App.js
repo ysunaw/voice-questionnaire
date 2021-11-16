@@ -9,10 +9,11 @@ import Sidebar from "./components/sidebar.js";
 // import ShortAnswer from "./components/questioncard.js"
 import OneCard from "./components/one-qcard.js"
 import PageView from "./components/preview.js";
-import { VolumeUp, CheckCircle } from '@mui/icons-material';
+import { VolumeUp, CheckCircle, DesktopWindows, RecordVoiceOver } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
-
-import Speech from 'react-speech';
+import { SayUtterance, SayButton } from 'react-say';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 
 
 
@@ -28,6 +29,7 @@ const formReducer = (state, event) => {
 
   }
  }
+
 
 function handlePreview() {
   // the function for putting the questioncard information to localstorage
@@ -76,7 +78,7 @@ const SurveyQuestions = () => (
         <Row className="question-list">
           <Col md>
           <h4>
-            Screen Display
+            Screen Display <DesktopWindows />
           </h4>
           <p>How screen would look like on the Alexa Echo device.</p>
           <Card className="screen-box">
@@ -89,12 +91,16 @@ const SurveyQuestions = () => (
           </Card>
         </Col>
         <Col md>
-        <h4>Voice Prompt</h4>
+        <h4>Voice Prompt <RecordVoiceOver /> </h4>
         <p>What the Alexa Echo device will say to the user. </p>
+        {
+
+        }
         {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
         <Card clasName="mx-auto voice-prompt">
-              <u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?" </u>
-              <IconButton size="medium"><VolumeUp /></IconButton>
+              <p><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?" </u>
+              {/*<SayButton onClick={ event => console.log(event)} speak={document.getElementById("q-voice").innerHTML}> <VolumeUp /> </SayButton>*/}
+              <IconButton><VolumeUp /></IconButton> </p>
         </Card>
         </Col>
 
@@ -109,21 +115,21 @@ const SurveyQuestions = () => (
 const Home = () => (
 
   <div className = "Home">
-  <Container fluid classname="main-content">
   <Navbar fixed="top" bg="light" expand="xs">
      <Navbar.Brand href="#">Voice Quatrics</Navbar.Brand>
        <Nav className="justify-content-right sidebar-sticky">
         <Button onClick={handlePreview} href="/preview">Preview & send</Button>
        </Nav>
    </Navbar>
-    <Row>
+  <Container fluid>
+  <Row>
       <Col xs={3} id = "sidebar-wrapper">
         <Sidebar />
       </Col>
       <Col xs={9} id="page-content-wrapper">
-        <SurveyQuestions />
+        <SurveyQuestions className="main-content"/>
       </Col>
-    </Row>
+  </Row>
   </Container>
   </div>
 );
@@ -136,7 +142,11 @@ const Preview = () => (
           <Button color="success" onClick={HandleSubmit}>Send</Button>
           </Nav>
       </Navbar>
+    <Container fluid="md">
+
     <PageView />
+    <Container fluid="md">
+
 
   </div>
 );
@@ -147,12 +157,12 @@ const Sent = () => (
         <Nav className="justify-content-right">
         <Button href="/preview" color="success" >Back</Button>
         </Nav>
-    </Navbar>
+    </Navbar>]
     <Card>
     <Card.Body>
       <CheckCircle color="success"/>
-      <Card.Title>Your questionnarie is successfully sent to Alexa.</Card.Title>
-      <Card.Text>To access your questionnaire, say '{localStorage.getItem("q-title")}' to your Alexa device. </Card.Text>
+      <Card.Title>Your questionnarie was successfully sent to Alexa.</Card.Title>
+      <Card.Text>To access your questionnaire, say open'{localStorage.getItem("main_title")}' to your Alexa device. </Card.Text>
     </Card.Body>
     </Card>
   </div>

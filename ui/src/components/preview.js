@@ -3,6 +3,8 @@ import {Card, Row, Col, Button, Container} from "react-bootstrap";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import IconButton from '@mui/material/IconButton';
+import { VolumeUp } from '@mui/icons-material';
+
 
 function NextQuestion() {
   document.getElementById("preview-q").innerHTML = localStorage.getItem("q_title");
@@ -26,10 +28,10 @@ export default class OneCard extends Component {
           <Container fluid>
           <div>
           <h3>Preview</h3>
-          <Row md-12>
-          <h4>Alexa Screen</h4>
 
-          <Card className="screen-box col-lg-12 d-flex align-items-stretch" id="">
+          <h4>Alexa Screen</h4>
+          <Row md={12}>
+          <Card className="screen-box" id="preview-screen-box">
             <p id="preview-q">{localStorage.getItem("main_title")} </p>
             <p id="preview-des">{localStorage.getItem("main_description")}</p>
           </Card>
@@ -38,7 +40,9 @@ export default class OneCard extends Component {
           <h4>Speech</h4>
 
           <Card className="speech-preview col-lg-12 d-flex align-items-stretch" id="">
-            <p id="preview-voice">{localStorage.getItem("main_voice")}</p>
+            <p id="preview-voice">{localStorage.getItem("main_voice")} <IconButton><VolumeUp /></IconButton></p>
+
+
           </Card>
          <IconButton onClick={PrevQuestion}><ArrowBackIosIcon/></IconButton>
          <IconButton onClick={NextQuestion}><ArrowForwardIosIcon/></IconButton>
