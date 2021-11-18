@@ -93,15 +93,10 @@ const SurveyQuestions = () => (
         <Col md>
         <h4>Voice Prompt <RecordVoiceOver /> </h4>
         <p>What the Alexa Echo device will say to the user. </p>
-        {
-
-        }
         {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
-        <Card clasName="mx-auto voice-prompt">
-              <p><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?" </u>
+              <p className="mx-auto voice-prompt"><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?</u>
               {/*<SayButton onClick={ event => console.log(event)} speak={document.getElementById("q-voice").innerHTML}> <VolumeUp /> </SayButton>*/}
               <IconButton><VolumeUp /></IconButton> </p>
-        </Card>
         </Col>
 
         </Row>
@@ -145,7 +140,7 @@ const Preview = () => (
     <Container fluid="md">
 
     <PageView />
-    <Container fluid="md">
+    </Container>
 
 
   </div>
@@ -157,14 +152,16 @@ const Sent = () => (
         <Nav className="justify-content-right">
         <Button href="/preview" color="success" >Back</Button>
         </Nav>
-    </Navbar>]
-    <Card>
+    </Navbar>
+    <Container>
+    <Card className="sent-card">
     <Card.Body>
-      <CheckCircle color="success"/>
-      <Card.Title>Your questionnarie was successfully sent to Alexa.</Card.Title>
-      <Card.Text>To access your questionnaire, say open'{localStorage.getItem("main_title")}' to your Alexa device. </Card.Text>
+      <CheckCircle color="success" className="success-icon add-space"/>
+      <Card.Title className="add-space">Your questionnarie was successfully sent to Alexa.</Card.Title>
+      <Card.Text>To access your questionnaire, say 'open {localStorage.getItem("main_title")}' to your Alexa device. </Card.Text>
     </Card.Body>
     </Card>
+    </Container>
   </div>
 );
 

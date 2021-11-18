@@ -39,29 +39,27 @@ export default class OneCard extends Component {
     render() {
         return (
           <div>
-          <Row>
-          <Col md>
-            <Card className="mx-auto screen-box">
-              <Card.Body>
-                <Card.Title id="mcq-title" contenteditable="true">
-                   <u>Multiple Choice Question</u>
-                 </Card.Title>
-
-                 <ul id="mcq-option">
-                   <li contenteditable="true" id="mc-option-1"><u>Option 1</u></li>
-                  </ul>
-
-                 <Button onClick={pushRules}>Add an Option</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md>
-          <Card clasName="mx-auto voice-prompt">
-            <p><u contentEditable="true" id="mcq-voice">Question?</u><IconButton><VolumeUp /></IconButton></p>
-          </Card>
+          <Row className="add-space question-list">
+            <Col md>
+              <Card className="mx-auto screen-box">
+                <Card.Body>
 
 
-          </Col>
+                  <Card.Title>
+                  <u contenteditable="true" id ="mcq-title">Multiple Choice Question</u>
+                   </Card.Title>
+
+                   <ul id="mcq-option">
+                     <li contenteditable="true" id="mc-option-1"><u>Option 1</u></li>
+                    </ul>
+
+                   <Button onClick={pushRules}>Add an Option</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md>
+                <p className="mx-auto voice-prompt"><u contentEditable="true" id="mcq-voice">Question?</u><IconButton><VolumeUp /></IconButton></p>
+            </Col>
           </Row>
           </div>
         )

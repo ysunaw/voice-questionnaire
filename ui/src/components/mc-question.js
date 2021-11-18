@@ -32,11 +32,9 @@ export default class ShortAnswer extends Component {
                  </Card>
                </Col>
                <Col md>
-               <Card clasName="mx-auto voice-prompt">
-                   <Form>
+                   <Form className="mx-auto voice-prompt">>
                      <Form.Control placeholder="Short Answer? " />
                    </Form>
-               </Card>
                </Col>
                </Row>
 

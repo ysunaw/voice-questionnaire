@@ -25,7 +25,9 @@
   color: black;
 }
 
-
+.add-space {
+  margin: 4px;
+}
 
 .card
 {
@@ -65,11 +67,43 @@
 }
 
 
+.card.preview-screen-box
+{
+  padding-top: 20px;
+  background-color: white;
+  border: 10px solid #878C8C;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 300px;
+  width: 500px;
+
+  color: #000
+}
+
+
 .card.voice-prompt
 {
   backgorund-color: transparent;
 
 }
+
+.card.sent-card {
+  padding-top: 30px;
+
+  width: 900px;
+  height: 500px;
+  text-align: left;
+
+}
+
+.success-icon {
+  transform: scale(1.8);
+
+
+
+}
+
+
 
 .card.add-question {
   background-color: transparent;
