@@ -17,6 +17,8 @@ The primary features of the voice survey maker platform are:
 
 ## User guide
 
+![system](img/user_flow.png)
+
 As a user, open the GUI platform to get started. The left sidebar shows the types of questions it supports. Drag and drop a type of question card to the main section and click on the titles, description, and voice prompt to edit them. In multiple choice questions, you can add options by clicking on the 'add an option' button.  
 
 After finish editing your questionnarie, you can click on the 'preview & send' button to see the preview of the questionnarie. You can always go back to the editing page if you want to make any changes. Click on the ‘send’ button on the preview page when you think it is ready to be sent out. Should the deployment be successful, you will see a successful message with the instruction on accessing the questionnaire. 
@@ -25,11 +27,13 @@ To access the questionnarie you created, use any Amazon Echo devices or Alexa ap
 
 To make sense of what you could do in the app, use this [Figma Prototype](https://www.figma.com/proto/muG4NGDatAY6zFcb1fAXEf/voice-qualtrics?page-id=220%3A173&node-id=323%3A69&viewport=-292%2C-1018%2C0.4422054886817932&scaling=min-zoom) to explore around. 
 
+
+
 ## Developer's guide
 
 The platform consists of three part, the Graphical User Interface (GUI), Dynamo DB database, and the Amazon Web Services(AWS)'s skills. The system diagram is shown as below. 
 
-![system](system_components.png)
+![system](img/system_components.png)
 
 The system starts with the user creating and sending a questionnaire using the GUI. Once the user presses the send button on the user interface, the front-end side would send POST requests and the questions would occur in the AWS's Dynamo Databas with the help of lambda function. When the patient’s side speaks to his/her Alexa device to trigger the questionnaire, Amazon voice service would read the questions from the database and announce them one at a time to the patient.  
 
