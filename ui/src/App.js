@@ -9,7 +9,7 @@ import Sidebar from "./components/sidebar.js";
 // import ShortAnswer from "./components/questioncard.js"
 import OneCard from "./components/one-qcard.js"
 import PageView from "./components/preview.js";
-import { VolumeUp, CheckCircle, DesktopWindows, RecordVoiceOver } from '@mui/icons-material';
+import { VolumeUp, CheckCircle, DesktopWindows, RecordVoiceOver, CompressOutlined } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
 import { SayUtterance, SayButton } from 'react-say';
 import AppBar from '@mui/material/AppBar';
@@ -168,26 +168,37 @@ const Sent = () => (
 function HandleSubmit() {
   var request = require('request');
 
-  var url = "https://h5de9isuhd.execute-api.us-east-2.amazonaws.com/qq";
+  var url = "https://f3snh49py4.execute-api.us-east-1.amazonaws.com/post_survey/post_survey";
 
   var requestData = {
-    "qId":12947389025,
-    "Options":localStorage.getItem("main_title"),
+    "userID":"899",
+    "questionTitle":localStorage.getItem("main_title"),
     "questionText":localStorage.getItem("main_description"),
-    "questionType": "title"
-
+    "questionOptions": "Yes, No",
+    "questionType": "title",
+    "voiceOption": "voice",
+    "TimeStamp": "12.45.13"
   }
 
   console.log(requestData)
   var data = {
       url: url,
       json: true,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.parse(JSON.stringify(requestData))
   }
 
   request.post(data, function(error, httpResponse, body){
       console.log(body);
+      console.log(httpResponse);
+      if (error) {
+        return console.log(error);
+      }
       if (httpResponse.statusCode === 200)
+          console.log(httpResponse.body);
           window.location.replace("/sent")
 
 
