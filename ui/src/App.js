@@ -177,9 +177,9 @@ function HandleSubmit() {
     "userID":uuid.v1(),
     "questionTitle":localStorage.getItem("main_title"),
     "questionText":localStorage.getItem("main_description"),
-    "questionOptions": "Yes, No",
-    "questionType": "title",
-    "voiceOption": "voice",
+    "questionOptions": localStorage.getItem("q_option"),
+    "questionType": localStorage.getItem("q_title"),
+    "voiceOption": localStorage.getItem("main_voice"),
     "TimeStamp": date
   }
 
