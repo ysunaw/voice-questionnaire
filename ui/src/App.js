@@ -170,14 +170,17 @@ function HandleSubmit() {
 
   var url = "https://f3snh49py4.execute-api.us-east-1.amazonaws.com/post_survey/post_survey";
 
+  var uuid = require('uuid');
+  var date = new Date().toLocaleString();
+
   var requestData = {
-    "userID":"899",
+    "userID":uuid.v1(),
     "questionTitle":localStorage.getItem("main_title"),
     "questionText":localStorage.getItem("main_description"),
     "questionOptions": "Yes, No",
     "questionType": "title",
     "voiceOption": "voice",
-    "TimeStamp": "12.45.13"
+    "TimeStamp": date
   }
 
   console.log(requestData)
