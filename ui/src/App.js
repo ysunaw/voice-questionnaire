@@ -174,7 +174,7 @@ function HandleSubmit() {
   var date = new Date().toLocaleString();
 
   var requestData = {
-    "userID":uuid.v1(),
+    "userID":"amzn1.ask.account.AEMNRNKIASV72RLNT726RLNT6EDTTHZVNDEH7C5CFL6OHA6XFHAD7PBVKFSFGDG7KORVER7SCSIEYTDVMKK6YAUFF2DVRY5PGMUGM32NNOVALI33EIO76OMTMWXHPJN4ZAHXQOEAKAX7GEWGFXWZUU44KTLU5U2LED37VCGAQ6HYHKQCDIU6IOFB52CFYPCSAMH5TULF3NLUWZA",
     "questionTitle":localStorage.getItem("main_title"),
     "questionText":localStorage.getItem("main_description"),
     "questionOptions": localStorage.getItem("q_option"),
