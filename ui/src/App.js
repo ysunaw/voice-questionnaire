@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useReducer, useState} from "react";
-import { Navbar, Nav, Container, Button, Row, Col, Card, Form } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, Card, Form, Row, Col } from 'react-bootstrap';
 import { Switch, Route} from 'react-router-dom';
 import Sidebar from "./components/sidebar.js";
 // import QuestionCard from "./components/questioncard.js"
@@ -11,7 +11,7 @@ import OneCard from "./components/one-qcard.js"
 import PageView from "./components/preview.js";
 import { VolumeUp, CheckCircle, DesktopWindows, RecordVoiceOver } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
-import { SayUtterance, SayButton } from 'react-say';
+import  {useSynthesize } from 'react-say';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 
@@ -21,7 +21,6 @@ import Box from '@mui/material/Box';
 import { useDrag } from 'react-dnd'
 
 
-
 const formReducer = (state, event) => {
   return {
     ...state,
@@ -29,7 +28,6 @@ const formReducer = (state, event) => {
 
   }
  }
-
 
 function handlePreview() {
   // the function for putting the questioncard information to localstorage
@@ -94,9 +92,10 @@ const SurveyQuestions = () => (
         <h4>Voice Prompt <RecordVoiceOver /> </h4>
         <p>What the Alexa Echo device will say to the user. </p>
         {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
-              <p className="mx-auto voice-prompt"><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?</u>
-              {/*<SayButton onClick={ event => console.log(event)} speak={document.getElementById("q-voice").innerHTML}> <VolumeUp /> </SayButton>*/}
-              <IconButton><VolumeUp /></IconButton> </p>
+            <p className="mx-auto voice-prompt"><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?</u>
+              <IconButton onClick={speakTitleVoice}><VolumeUp /></IconButton> </p>
+
+
         </Col>
 
         </Row>
@@ -194,5 +193,13 @@ function HandleSubmit() {
   });
 
 };
+
+function speakTitleVoice(){
+  var utterance = document.getElementById("q-voice").textContent
+  console.log(utterance)
+
+}
+
+
 
 export default App;

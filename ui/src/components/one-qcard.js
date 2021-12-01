@@ -14,8 +14,6 @@ function pushRules(list){
      u.appendChild(rule);
 
 
-
-
      var removeBtn = document.createElement("input");
 
      removeBtn.type = "button";
@@ -28,6 +26,12 @@ function pushRules(list){
 function remove(e) {
    var el = e.target;
    el.parentNode.remove();
+ }
+
+ function speakAnswerVoice(){
+   var utterance_2 = document.getElementById("mcq-voice").textContent
+   console.log(utterance_2)
+
  }
 
 export default class OneCard extends Component {
