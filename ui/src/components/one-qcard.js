@@ -9,9 +9,11 @@ function pushRules(list){
      var li = document.createElement("li");
      var u = document.createElement("u")
      var rule = document.createTextNode("New option");
+
      li.appendChild(u);
      u.contentEditable = "true";
      u.appendChild(rule);
+
 
 
      var removeBtn = document.createElement("input");
@@ -19,8 +21,12 @@ function pushRules(list){
      removeBtn.type = "button";
      removeBtn.value = "Remove";
      removeBtn.onclick = remove;
+
      li.appendChild(removeBtn);
-     document.getElementById("mcq-option").appendChild(li);
+     document.getElementById("mcq-option").appendChild(li)
+
+
+
  }
 
 function remove(e) {
@@ -29,8 +35,10 @@ function remove(e) {
  }
 
  function speakAnswerVoice(){
-   var utterance_2 = document.getElementById("mcq-voice").textContent
-   console.log(utterance_2)
+   var msg = new SpeechSynthesisUtterance();
+   msg.text = document.getElementById("mcq-voice").textContent
+   console.log(msg.text)
+   window.speechSynthesis.speak(msg);
 
  }
 
@@ -62,7 +70,7 @@ export default class OneCard extends Component {
               </Card>
             </Col>
             <Col md>
-                <p className="mx-auto voice-prompt"><u contentEditable="true" id="mcq-voice">Question?</u><IconButton><VolumeUp /></IconButton></p>
+                <p className="mx-auto voice-prompt"><u contentEditable="true" id="mcq-voice">Multiple Choice Question? You can say: [options]</u><IconButton onClick={speakAnswerVoice}><VolumeUp /></IconButton></p>
             </Col>
           </Row>
           </div>

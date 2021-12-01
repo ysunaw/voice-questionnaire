@@ -21,6 +21,14 @@ function PrevQuestion() {
   document.getElementById("preview-voice").innerHTML = localStorage.getItem("main_voice");
 }
 
+function SayUtterance() {
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = document.getElementById("preview-voice").textContent
+  console.log(msg.text)
+  window.speechSynthesis.speak(msg);
+
+}
+
 export default class OneCard extends Component {
     constructor(props) {
         super(props);
@@ -46,7 +54,8 @@ export default class OneCard extends Component {
           <h4>Speech</h4>
 
           <Card className="speech-preview col-12">
-            <p id="preview-voice" contentEditable="false">{localStorage.getItem("main_voice")} <IconButton><VolumeUp /></IconButton></p>
+            <p id="preview-voice" contentEditable="false">{localStorage.getItem("main_voice")} </p>
+            <p><IconButton onClick={SayUtterance}><VolumeUp /></IconButton></p>
 
 
           </Card>

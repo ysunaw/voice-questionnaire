@@ -37,7 +37,13 @@ function handlePreview() {
   localStorage.setItem("main_description",document.getElementById("q-description").innerHTML)
   localStorage.setItem("main_voice", document.getElementById("q-voice").innerHTML)
   localStorage.setItem("q_title", document.getElementById("mcq-title").innerHTML)
-  localStorage.setItem("q_option", document.getElementById("mcq-option").innerHTML)
+  var par = document.getElementById("mcq-option");
+  var r = par.getElementsByTagName("input")
+  for(var i = 0; i < r.length; i++){
+    r[i].parentNode.removeChild(r[i]);
+  }
+  localStorage.setItem("q_option", par.innerHTML)
+
   localStorage.setItem("q_voice", document.getElementById("mcq-voice").innerHTML)
 
 
@@ -92,7 +98,7 @@ const SurveyQuestions = () => (
         <h4>Voice Prompt <RecordVoiceOver /> </h4>
         <p>What the Alexa Echo device will say to the user. </p>
         {/* <p>Welcome to untitled questionnaire. Description. Are you ready? </p> */}
-            <p className="mx-auto voice-prompt"><u contentEditable="true" id="q-voice">Welcome to untitled questionnaire. Description. Are you ready?</u>
+            <p className="mx-auto voice-prompt"><u contentEditable="true" id="q-voice">Welcome to [untitled questionnaire]. [Description]. Are you ready?</u>
               <IconButton onClick={speakTitleVoice}><VolumeUp /></IconButton> </p>
 
 
@@ -209,8 +215,11 @@ function HandleSubmit() {
 };
 
 function speakTitleVoice(){
-  var utterance = document.getElementById("q-voice").textContent
-  console.log(utterance)
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = document.getElementById("q-voice").textContent
+  console.log(msg.text)
+  window.speechSynthesis.speak(msg);
+
 
 }
 
